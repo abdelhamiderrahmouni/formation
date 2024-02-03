@@ -8,3 +8,12 @@
 }
 
 
+@layer components {
+  .bg-primary-gradient{
+    background: linear-gradient(79deg, theme(colors.lima.400) 17.66%, theme(colors.breaker-bay.500) 51.46%, theme(colors.wattle.300) 89.27%);
+  }
+  .text-primary-gradient{
+    @apply bg-primary-gradient bg-clip-text text-transparent;
+  }
+
+}
