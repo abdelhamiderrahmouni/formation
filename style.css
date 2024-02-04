@@ -11,6 +11,10 @@ html {
   scroll-behavior: smooth;
 }
 
+[x-cloak]{
+  display: none;
+}
+
 @layer components {
   .bg-primary-gradient{
     background: linear-gradient(79deg, theme(colors.lima.400) 17.66%, theme(colors.breaker-bay.500) 51.46%, theme(colors.wattle.300) 89.27%);

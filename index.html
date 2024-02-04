@@ -8,20 +8,35 @@
     <!-- inter google font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;900&display=swap" />
     <link rel="stylesheet" href="style.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
   </head>
   <body class="bg-wattle-50">
-    <header class="relative mx-auto max-w-7xl">
-      <nav class="absolute">
-        <div>
-          <!-- brand -->
-          <a href="https://digiton.ma">
-            <img src="/assets/logos/logo-sm.png" alt="">
-          </a>
+    <header class="relative mx-auto h-screen max-w-7xl">
 
-        </div>
-      </nav>
+      <div class="z-50 flex w-full flex-wrap text-lg sm:flex-nowrap sm:justify-start">
+        <nav class="relative mx-auto w-full max-w-[85rem] px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global" x-data="{ open: false }" x-cloak>
+          <div class="flex items-center justify-between">
+            <a class="flex-none text-xl font-semibold" href="https://digiton.ma">
+              <img src="/assets/logos/logo-sm.png" alt="">
+            </a>
+            <div class="sm:hidden">
+              <button type="button" @click="open = !open" class="hs-collapse-toggle inline-flex items-center justify-center gap-x-2 rounded-lg border border-gray-200 bg-wattle-50 p-2 text-gray-800 shadow-sm hover:bg-wattle-200 disabled:pointer-events-none disabled:opacity-50" data-hs-collapse="#navbar-with-collapse" aria-controls="navbar-with-collapse" aria-label="Toggle navigation">
+                <svg class="hs-collapse-open:hidden h-4 w-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+                <svg class="hs-collapse-open:block hidden h-4 w-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </button>
+            </div>
+          </div>
+          <div id="navbar-with-collapse" :class="{ 'hidden': !open, 'absolute block w-full pb-8 shadow-sm left-0 px-4 bg-wattle-50': open } "  class="grow basis-full sm:block">
+            <div class="mt-5 flex flex-col gap-5 sm:mt-0 sm:flex-row sm:items-center sm:justify-end sm:ps-5">
+              <a class="text-gray-600 hover:text-lima-400" href="#brochure">brochure</a>
+              <a class="text-gray-600 hover:text-lima-400" href="#formation">formation</a>
+              <a class="text-gray-600 hover:text-lima-400" href="#formateur">formateur</a>
+            </div>
+          </div>
+        </nav>
+      </div>
 
-      <div class="flex h-screen w-full flex-col items-center justify-center gap-8 px-4 text-center">
+      <div class="flex flex-col items-center justify-center gap-8 px-4 py-16 text-center md:py-32">
         <!-- Social proof start -->
         <div class="flex md:gap-12">
           <div class="flex flex-col items-center">
@@ -59,15 +74,15 @@
         </div>
         <!-- Social proof end -->
         
-        <h1 class="mx-auto max-w-6xl text-3xl font-extrabold text-gray-900 md:text-6xl">
+        <h1 class="mx-auto max-w-6xl text-4xl font-extrabold text-gray-900 md:text-6xl">
           Transformez 
           <span class="text-primary-gradient">votre carrière </span>avec notre formation de pointe! 🚀
         </h1>
-        <p class="mx-auto max-w-2xl text-xl text-gray-700">
+        <p class="text-md mx-auto max-w-2xl text-gray-700 md:text-xl">
           Inscrivez-vous dès maintenant pour débloquer l’accès à notre brochure exclusive et devenir un expert en marketing digital.
         </p>
 
-        <a href="#telecharger-brochure"  class="rounded-lg bg-gradient-to-tr from-breaker-bay-600 to-lima-400 px-6 py-4 uppercase text-white shadow-xl shadow-lima-300/80">
+        <a href="#brochure" class="rounded-lg bg-gradient-to-tr from-breaker-bay-600 to-lima-400 px-6 py-4 uppercase text-white shadow-xl shadow-lima-300/80">
           Téléchargez la brochure
         </a>
 
@@ -78,7 +93,7 @@
       <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div class="mx-auto max-w-2xl">
           <div class="text-center">
-            <h2 class="lg:text-4x text-3xl font-bold text-gray-800 scroll-my-16" id="telecharger-brochure">
+            <h2 class="lg:text-4x scroll-my-16 text-3xl font-bold text-gray-800" id="brochure">
               Téléchargez <span class="text-primary-gradient">la brochure</span>
             </h2>
             <p class="mt-3 text-gray-800">Remplissez vos informations et recevez la brochure instantanément.</p>
@@ -117,7 +132,7 @@
           <!-- Grid -->
           <div class="grid gap-12">
             <div class="text-center">
-              <h2 class="lg:text-4x text-3xl font-bold text-gray-800">
+              <h2 class="lg:text-4x scroll-my-16 text-3xl font-bold text-gray-800" id="formation">
                 Pourquoi choisir <span class="text-primary-gradient">notre formation</span>?
               </h2>
               <p class="mt-3 text-gray-800">
@@ -192,7 +207,7 @@
       <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <!-- Title -->
         <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
-          <h2 class="lg:text-4x text-3xl font-bold text-gray-800">
+          <h2 class="lg:text-4x scroll-my-16 text-3xl font-bold text-gray-800" id="formateur">
             À propos de <span class="text-primary-gradient">votre formateur</span>
           </h2>
           <p class="mt-1 text-gray-600">Othmane BENNANI</p>
